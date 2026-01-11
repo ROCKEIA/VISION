@@ -1,3 +1,4 @@
+
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, accuracy_score
@@ -7,13 +8,13 @@ import seaborn as sns
 from funcion import (
     load_dataset,
     extract_hog_features,
+    extract_hog_features_opencv,
     apply_pca,
     train_classifier
 )
 
 # Ruta del dataset
-DATASET_PATH = DATASET_PATH = "/home/rabogal/Vision_Computador/archive (1)/animals/train"  # carpeta con cat/dog/horse/etc
-
+DATASET_PATH = r"D:\IgRob 25i26\Vision\Final\archive (1)\animals\train"
 
 def main():
 
@@ -31,8 +32,7 @@ def main():
     # HOG
     # ---------------------------
     print("\nExtrayendo HOG...")
-    hog_features = extract_hog_features(X)
-
+    hog_features = extract_hog_features_opencv(X)  # Usar versión OpenCV
     # ---------------------------
     # PCA
     # ---------------------------
@@ -81,4 +81,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
